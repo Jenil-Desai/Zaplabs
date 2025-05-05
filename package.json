@@ -22,6 +22,7 @@
     "packages/*"
   ],
   "dependencies": {
-    "@repo/db": "^1.0.0"
+    "@repo/db": "^1.0.0",
+    "kafkajs": "^2.2.4"
   }
 }
