@@ -152,7 +152,7 @@ export function RegisterForm() {
           {form.formState.isSubmitting ? (
             <div className="flex items-center justify-center gap-2">
               <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
-              <span>Creating Account...</span>
+              <span className="text-white">Creating Account...</span>
             </div>
           ) : (
             <span className="text-white">Create Account</span>
