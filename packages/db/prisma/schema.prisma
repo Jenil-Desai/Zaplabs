@@ -20,10 +20,15 @@ model User {
   email     String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Zaps      Zaps[]
 }
 
 model Zaps {
   id        String    @id @default(uuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [clerkId])
+  name      String
+  active    Boolean   @default(true)
   triggerId String
   trigger   Triggers?
   action    Action[]
