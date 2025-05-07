@@ -15,7 +15,6 @@ import { useSignUp } from "@clerk/nextjs";
 import { VerificationForm } from "../Verify/VerifyForm";
 import { useAtom } from "jotai";
 import { isVerifyingAtom } from "@/store/atoms";
-import { SetActiveParams } from "@clerk/types";
 
 export function RegisterForm() {
   const [isVerifying, setIsVerifying] = useAtom(isVerifyingAtom);

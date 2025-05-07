@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -25,7 +27,7 @@ export function LoginForm() {
     },
   });
 
-  async function onSubmit(data: LoginSchema) {
+  async function onSubmit(data: any) {
     if (!isLoaded) {
       toast.error("Error", {
         description: "Clerk is not loaded",
@@ -33,6 +35,8 @@ export function LoginForm() {
       });
       return;
     }
+
+    console.log("Form data", data);
 
     try {
       const signInAttempt = await signIn.create({
@@ -63,9 +67,8 @@ export function LoginForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <div className="space-y-2">
           <FormField
-            control={form.control}
             name="email"
-            disabled={form.formState.isSubmitting}
+            control={form.control}
             render={({ field }) => {
               return (
                 <FormItem>
@@ -73,7 +76,7 @@ export function LoginForm() {
                   <FormControl>
                     <div className="relative">
                       <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                      <Input {...field} type="email" placeholder="name@example.com" className="pl-10" />
+                      <Input {...field} placeholder="name@example.com" className="pl-10" />
                     </div>
                   </FormControl>
                   <FormMessage />
@@ -86,7 +89,6 @@ export function LoginForm() {
           <FormField
             control={form.control}
             name="password"
-            disabled={form.formState.isSubmitting}
             render={({ field }) => (
               <FormItem>
                 <FormLabel>
@@ -111,6 +113,7 @@ export function LoginForm() {
             )}
           />
         </div>
+        <div id="clerk-captcha"></div>
         <Button type="submit" className="w-full bg-pink-600 hover:bg-pink-700" disabled={form.formState.isSubmitting}>
           {form.formState.isSubmitting ? (
             <div className="flex items-center justify-center gap-2">
