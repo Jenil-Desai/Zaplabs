@@ -1,4 +1,5 @@
 import {DashboardStats} from "@/components/section/Dashboard/Home/Statatics/DashboardStats";
+import {AutomationRecommandations} from "@/components/section/Dashboard/Home/Automation/AutomationRecommandations";
 
 export default function Page() {
     return (
@@ -11,6 +12,7 @@ export default function Page() {
 
             <div className="mb-8">
                 <h2 className="text-xl font-semibold text-pink-700 mb-4">Recommended Automations</h2>
+                <AutomationRecommandations/>
             </div>
         </>
     );
