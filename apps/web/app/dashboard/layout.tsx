@@ -12,7 +12,7 @@ export default function DashboardLayout({children}: Readonly<{ children: React.R
                 <DashboardSidebar/>
                 <div className="flex-1 flex flex-col">
                     <DashboardTopbar/>
-                    <main className="flex-1 p-6 overflow-y-auto z-10">
+                    <main className="flex-1 p-4 overflow-y-auto z-10">
                         {children}
                     </main>
                 </div>
