@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/sidebar";
 import {Button} from "@/components/ui/button";
 import {sidebaritems} from "@/components/global/sidebar/sidebaritems";
+import Link from "next/link";
 
 export function DashboardSidebar() {
     return (
@@ -16,7 +17,9 @@ export function DashboardSidebar() {
                  className="w-64 bg-white/50 border-none border-pink-200/30 rounded-lg z-20">
             <SidebarHeader className="p-4 flex items-center">
                 <div className="flex items-center space-x-2">
-                    <span className="text-xl font-bold text-pink-600">Zaplabs</span>
+                    <Link href="/" className="text-2xl font-bold text-pink-600">
+                        Zap<span className="text-gray-800">labs</span>
+                    </Link>
                 </div>
             </SidebarHeader>
             <SidebarContent>
