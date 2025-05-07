@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ArrowRight, RefreshCw } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import AnimatedGlassmorphism from "@/components/global/AnimatedGlassmorphism";
@@ -8,7 +8,6 @@ import Link from "next/link";
 import { RegisterForm } from "@/components/section/Registration/Register/RegisterForm";
 import { useAtomValue } from "jotai";
 import { isVerifyingAtom } from "@/store/atoms";
-import { Button } from "@/components/ui/button";
 
 export default function Page() {
   const isVerifying = useAtomValue(isVerifyingAtom);

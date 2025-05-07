@@ -1,10 +1,9 @@
-import React from "react";
-import type { Metadata } from "next";
-import "./globals.css";
 import ConditionalLayout from "@/components/global/ConditionalLayout";
-import { Toaster } from "@/components/ui/sonner";
-import { ClerkProvider } from "@clerk/nextjs";
 import Providers from "@/components/layouts/Providers";
+import { Toaster } from "@/components/ui/sonner";
+import type { Metadata } from "next";
+import React from "react";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Zaplabs",
