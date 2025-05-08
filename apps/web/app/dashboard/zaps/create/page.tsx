@@ -12,6 +12,7 @@ import {createZap} from "@/actions/createZap";
 import {logger} from "@repo/logger";
 import {toast} from "sonner";
 import {useRouter} from "next/navigation";
+import ZapCreationSkeleton from "@/app/dashboard/zaps/create/Skeleton";
 
 export default function Page() {
     const {isError: isTriggerError, isPending: isTriggerPending, data: triggerData} = useQuery({
@@ -122,12 +123,11 @@ export default function Page() {
     };
 
     if (isTriggerError || isActionError) {
-        return <div>Error loading data</div>;
+        toast.error("Error loading triggers or actions");
+        return <ZapCreationSkeleton/>;
     }
 
-    if (isTriggerPending || isActionPending) {
-        return <div>Loading...</div>;
-    }
+    if (isTriggerPending || isActionPending) return <ZapCreationSkeleton/>;
 
     return (
         <div className="flex flex-col justify-center space-y-4 h-full w-full">

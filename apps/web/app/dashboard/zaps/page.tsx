@@ -5,6 +5,8 @@ import {getUserZaps} from "@/queryFn/getUserZaps";
 import {DataTable} from "@/app/dashboard/zaps/data-table";
 import {columns} from "@/app/dashboard/zaps/columns";
 import {useRouter} from "next/navigation";
+import ZapsListSkeleton from "@/app/dashboard/zaps/Skeleton";
+import {toast} from "sonner";
 
 export default function Page() {
     const router = useRouter();
@@ -13,12 +15,11 @@ export default function Page() {
         queryFn: getUserZaps,
     })
 
-    if (isError) {
-        return <div>Error loading zaps</div>;
-    }
+    if (isPending) return <ZapsListSkeleton/>;
 
-    if (isPending) {
-        return <div>Loading...</div>;
+    if (isError) {
+        toast.error("Failed to load zaps");
+        return <ZapsListSkeleton/>;
     }
 
     return (

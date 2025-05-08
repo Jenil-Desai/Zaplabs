@@ -8,6 +8,8 @@ import {UserRound} from "lucide-react";
 import {useQuery} from "@tanstack/react-query";
 import {getUserProfile} from "@/queryFn/getUserProfile";
 import {useUser} from "@clerk/nextjs";
+import ProfileSkeleton from "@/app/dashboard/profile/skeleton";
+import {toast} from "sonner";
 
 export default function Page() {
     const {user: currentUser} = useUser();
@@ -17,12 +19,11 @@ export default function Page() {
         queryFn: getUserProfile
     });
 
-    if (isPending) {
-        return <div className="text-center text-pink-700">Loading...</div>;
-    }
+    if (isPending) return <ProfileSkeleton/>;
 
     if (isError) {
-        return <div className="text-center text-red-500">Error loading profile</div>;
+        toast.error("Error loading profile");
+        return <ProfileSkeleton/>;
     }
 
     return (
